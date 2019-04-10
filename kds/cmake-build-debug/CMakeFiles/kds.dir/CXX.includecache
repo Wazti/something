@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/MKudrya/repos/something/kds/FordFulkerson.cpp
+FordFulkerson.h
+/Users/MKudrya/repos/something/kds/FordFulkerson.h
+limits.h
+-
+cstring
+-
+queue
+-
+iostream
+-
+vector
+-
+FordFulkerson.h
+/Users/MKudrya/repos/something/kds/FordFulkerson.h
+
+/Users/MKudrya/repos/something/kds/FordFulkerson.h
+vector
+-
+
