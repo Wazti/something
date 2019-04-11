@@ -7,36 +7,32 @@
 #include <vector>
 
 using namespace std;
-// A structure to represent a edge between
-// two vertex
+//Структура ребра между двумя вершинами
 struct Edge
 {
-    int v ;  // Vertex v (or "to" vertex)
-    // of a directed edge u-v. "From"
-    // vertex u can be obtained using
-    // index in adjacent array.
+    int v ;  // вершина/Vertex v
 
-    int flow ; // flow of data in edge
+    int flow ; // поток в ребре
 
-    int C;    // capacity
+    int C;    // вместимость
 
     int rev ; // To store index of reverse
     // edge in adjacency list so that
     // we can quickly find it.
 };
 
-// Residual Graph
+// Остаточный граф
 class Dinic {
-    int V; // number of vertex
-    int *level ; // stores level of a node
-    vector< Edge > *adj;
-    vector<std::pair<int, int>> allPairs;
+    int V; // количество вершин
+    int *level ; // уровни узла
+    vector<Edge> *adject;
+    vector<std::pair<int, int>> pairs;
 public :
     Dinic(vector<vector<int>> matrix, int V, vector<std::pair<int, int>> pairs);
-    void runAlgorithm();
+    void run();
     void readFromMatrix(vector<vector<int>> matrix);
     void addEdge(int u, int v, int C);
-    bool BFS(int s, int t);
+    bool bfs(int s, int t);
     int dfs(int s, int flow, int t, int ptr[]);
     int dinicMaxflow(int s, int t);
 };

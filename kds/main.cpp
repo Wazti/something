@@ -2,128 +2,66 @@
 #include <sstream>
 #include <fstream>
 #include <cstring>
-#include "algorithm"
 #include "vector"
-#include "limits.h"
-#include <queue>
 #include <ctime>
+#include "time.h"
 #include "FordFulkerson.h"
 #include "EdmondCarp.h"
+#include "Dinic.h"
+#include "GraphPairs.h"
 using namespace std;
 
-int dfs(vector<vector<int>>& graph, int index);
-vector<std::pair<int, int>> findAllPairs(vector<vector<int>>& graph);
-bool isSource(vector<vector<int>>& graph, int index);
-bool isTarget(vector<vector<int>>& graph, int index);
-vector<vector<int>> readMatrix(string filename);
-
-//**********************
-int dfs(vector<vector<int>>& graph, int index)
+double alghorithms(int i, vector<vector<int>> graph, vector<pair<int,int>> pairs);
+int main()
 {
-    bool visited[graph.size()];
-    memset(visited, 0, sizeof(visited));
-    queue<int> q;
-    q.push(index);
-    visited[index] = true;
-    while (!q.empty())
+    ofstream fout;
+    fout.open("output.txt");
+    for (int k = 0; k< 6; k++)
     {
-        int u = q.front();
-        q.pop();
-
-        for (int v = 0; v < graph.size(); v++)
+        cout<<inputfiles[k]<<endl;
+        vector<vector<int>> graph = readMatrix(inputfiles[k]);
+        //cout << "Size of graph " << graph.size() << endl;
+        vector<pair<int, int>> pairs = findAllPairs(graph);
+        double res[3] = {0};
+        for (int j = 0; j < 10; j++)
         {
-            if (!visited[v] && graph[u][v] != 0)
+            for (int i = 0; i < 3; i++)
             {
-                q.push(v);
-                visited[v] = true;
-                if (isTarget(graph, v))
-                    return v;
+                res[i] += alghorithms(i, graph, pairs);
             }
         }
+        fout << res[0] / 10 << ";" << res[1] / 10 << ";" << res[2] / 10<<";"<<endl;
     }
-}
-
-vector<std::pair<int, int>> findAllPairs(vector<vector<int>>& graph)
-{
-    vector<pair<int, int>> result;
-    for (int i = 0; i < graph.size(); i++)
-        if (isSource(graph, i))
-            result.push_back(make_pair(i, dfs(graph, i)));
-    return result;
-}
-bool isSource(vector<vector<int>>& graph, int index)
-{
-    for (int i = 0; i < graph.size(); i++)
-        if (graph[i][index] != 0)
-            return false;
-    return true;
-}
-
-bool isTarget(vector<vector<int>>& graph, int index)
-{
-    for (int i = 0; i < graph.size(); i++)
-    {
-        if (graph[index][i] != 0)
-            return false;
-    }
-    return true;
-}
-//**********************
-
-vector<vector<int>> readMatrix(string filename);
-
-int main() {
-    vector<vector<int>> graph = readMatrix("../input/input_10_0.0.txt");
-    cout << graph.size()<< " "<< graph[0].size()<<endl;
-    vector<pair<int,int>> allPairs = findAllPairs(graph);
-    FordFulkerson fordFulkerson = FordFulkerson(graph, allPairs);
-    fordFulkerson.run();
-    EdmondCarp edmondCarp = EdmondCarp(graph,allPairs);
-    edmondCarp.run();
-    /*
-    clock_t start=clock();
-    fordFulkerson.runAlgorithm();
-    clock_t end=clock();
-    double time = (double)(end - start) / CLOCKS_PER_SEC;
-    cout<<"Ford-Fulkerson time: "<<time<<endl;
-    start = clock();
-    edmondKarp.runAlgorithm();
-    end = clock();
-    time = (double)(end - start) / CLOCKS_PER_SEC;
-    cout<<"Edmond-Karp time: "<<time<<endl;
-    start = clock();
-    dinic.runAlgorithm();
-    end = clock();
-    time = (double)(end - start) / CLOCKS_PER_SEC;
-    cout<<"Dinic time: "<<time<<endl;
-    */
+    fout.close();
     return 0;
 }
-
-vector<vector<int>> readMatrix(string filename)
-{
-    ifstream fin;
-    fin.open(filename);
-    string row;
-    vector<vector<int>> result;
-    if (fin.is_open())
+double alghorithms(int i, vector<vector<int>> graph, vector<pair<int,int>> pairs){
+    clock_t startTime;
+    clock_t endTime;
+    double duration;
+    switch (i)
     {
-        while (!fin.eof())
-        {
-            vector<int> arr;
-            getline(fin, row);
-            stringstream stream(row);
-            int n;
-            while (stream >> n)
-                arr.push_back(n);
-            if (!arr.empty())
-                result.push_back(arr);
+        case 0:{
+            FordFulkerson fordFulkerson = FordFulkerson(graph, pairs);
+            startTime = clock();
+            fordFulkerson.run();
+            break;
         }
+        case 1:{
+            EdmondCarp edmondCarp = EdmondCarp(graph,pairs);
+            startTime = clock();
+            edmondCarp.run();
+            break;
+        }
+        case 2:{
+            Dinic dinic = Dinic(graph, graph.size(), pairs);
+            startTime = clock();
+            dinic.run();
+            break;
+        }
+
     }
-    else
-    {
-        cout << "File broken!";
-        exit(1);
-    }
-    return result;
+    endTime = clock();
+    duration = (endTime - startTime) / (double) CLOCKS_PER_SEC * 1000 ;
+    return duration;
 }

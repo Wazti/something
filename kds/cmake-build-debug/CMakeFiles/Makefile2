@@ -71,7 +71,7 @@ CMAKE_BINARY_DIR = /Users/MKudrya/repos/something/kds/cmake-build-debug
 CMakeFiles/kds.dir/all:
 	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/depend
 	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/MKudrya/repos/something/kds/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target kds"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/Users/MKudrya/repos/something/kds/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target kds"
 .PHONY : CMakeFiles/kds.dir/all
 
 # Include target in all.
@@ -81,7 +81,7 @@ all: CMakeFiles/kds.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/kds.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MKudrya/repos/something/kds/cmake-build-debug/CMakeFiles 5
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MKudrya/repos/something/kds/cmake-build-debug/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/kds.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/MKudrya/repos/something/kds/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/kds.dir/rule

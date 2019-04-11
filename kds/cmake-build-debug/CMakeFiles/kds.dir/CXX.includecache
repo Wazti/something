@@ -6,16 +6,8 @@
 
 #IncludeRegexTransform: 
 
-/Users/MKudrya/repos/something/kds/EdmondCarp.cpp
-EdmondCarp.h
-/Users/MKudrya/repos/something/kds/EdmondCarp.h
-iostream
--
-limits.h
--
-string.h
--
-queue
+/Users/MKudrya/repos/something/kds/Dinic.h
+vector
 -
 
 /Users/MKudrya/repos/something/kds/EdmondCarp.h
@@ -23,4 +15,44 @@ vector
 -
 queue
 -
+
+/Users/MKudrya/repos/something/kds/FordFulkerson.h
+vector
+-
+
+/Users/MKudrya/repos/something/kds/GraphPairs.h
+vector
+-
+iostream
+-
+sstream
+-
+fstream
+-
+cstring
+-
+
+/Users/MKudrya/repos/something/kds/main.cpp
+iostream
+-
+sstream
+-
+fstream
+-
+cstring
+-
+vector
+/Users/MKudrya/repos/something/kds/vector
+ctime
+-
+time.h
+/Users/MKudrya/repos/something/kds/time.h
+FordFulkerson.h
+/Users/MKudrya/repos/something/kds/FordFulkerson.h
+EdmondCarp.h
+/Users/MKudrya/repos/something/kds/EdmondCarp.h
+Dinic.h
+/Users/MKudrya/repos/something/kds/Dinic.h
+GraphPairs.h
+/Users/MKudrya/repos/something/kds/GraphPairs.h
 

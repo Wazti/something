@@ -98,6 +98,12 @@
 		<Unit filename="/Users/MKudrya/repos/something/kds/FordFulkerson.h">
 			<Option target="kds"/>
 		</Unit>
+		<Unit filename="/Users/MKudrya/repos/something/kds/GraphPairs.cpp">
+			<Option target="kds"/>
+		</Unit>
+		<Unit filename="/Users/MKudrya/repos/something/kds/GraphPairs.h">
+			<Option target="kds"/>
+		</Unit>
 		<Unit filename="/Users/MKudrya/repos/something/kds/main.cpp">
 			<Option target="kds"/>
 		</Unit>

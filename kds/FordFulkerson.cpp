@@ -61,6 +61,6 @@ void FordFulkerson::run()
 
     {
         int res = fordFulkerson(G, pairs[i].first, pairs[i].second);
-        cout <<"Result "<<res << endl;
+        //cout <<"Result of FordFulkerson Algorithm  "<<res << endl;
     }
 }

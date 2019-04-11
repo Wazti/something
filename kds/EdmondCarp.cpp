@@ -99,7 +99,7 @@ void EdmondCarp::run()
     for (int i=0; i<pairs.size(); ++i)
     {
         int res = edmondCarp(G, pairs[i].first, pairs[i].second);
-        cout << res << endl;
+        //cout <<"Result of EdmondCarp Algorithm " << res << endl;
     }
 }
 

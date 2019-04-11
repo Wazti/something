@@ -204,6 +204,33 @@ FordFulkerson.cpp.s:
 	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/FordFulkerson.cpp.s
 .PHONY : FordFulkerson.cpp.s
 
+GraphPairs.o: GraphPairs.cpp.o
+
+.PHONY : GraphPairs.o
+
+# target to build an object file
+GraphPairs.cpp.o:
+	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/GraphPairs.cpp.o
+.PHONY : GraphPairs.cpp.o
+
+GraphPairs.i: GraphPairs.cpp.i
+
+.PHONY : GraphPairs.i
+
+# target to preprocess a source file
+GraphPairs.cpp.i:
+	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/GraphPairs.cpp.i
+.PHONY : GraphPairs.cpp.i
+
+GraphPairs.s: GraphPairs.cpp.s
+
+.PHONY : GraphPairs.s
+
+# target to generate assembly for a file
+GraphPairs.cpp.s:
+	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/GraphPairs.cpp.s
+.PHONY : GraphPairs.cpp.s
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -249,6 +276,9 @@ help:
 	@echo "... FordFulkerson.o"
 	@echo "... FordFulkerson.i"
 	@echo "... FordFulkerson.s"
+	@echo "... GraphPairs.o"
+	@echo "... GraphPairs.i"
+	@echo "... GraphPairs.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
