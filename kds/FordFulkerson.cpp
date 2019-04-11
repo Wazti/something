@@ -12,9 +12,9 @@
 
 using namespace std;
 
-FordFulkerson::FordFulkerson(vector<vector<int>> vector1, vector<pair<int,int>> pairs)
+FordFulkerson::FordFulkerson(vector<vector<int>> graph, vector<pair<int,int>> pairs)
 {
-    G = vector1;
+    G = graph;
     this->pairs = pairs;
 }
 int FordFulkerson::fordFulkerson(vector<vector<int>> &G, int s, int t)
@@ -58,6 +58,7 @@ int FordFulkerson::findPath(vector<vector<int>> &G, vector<bool> &visitedArr, in
 void FordFulkerson::run()
 {
     for(int i=0; i<pairs.size(); ++i)
+
     {
         int res = fordFulkerson(G, pairs[i].first, pairs[i].second);
         cout <<"Result "<<res << endl;

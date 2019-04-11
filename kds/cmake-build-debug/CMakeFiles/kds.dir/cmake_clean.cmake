@@ -2,6 +2,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/kds.dir/main.cpp.o"
   "CMakeFiles/kds.dir/FordFulkerson.cpp.o"
   "CMakeFiles/kds.dir/EdmondCarp.cpp.o"
+  "CMakeFiles/kds.dir/Dinic.cpp.o"
   "kds.pdb"
   "kds"
 )

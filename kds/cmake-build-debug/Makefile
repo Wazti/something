@@ -123,6 +123,33 @@ kds/fast:
 	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/build
 .PHONY : kds/fast
 
+Dinic.o: Dinic.cpp.o
+
+.PHONY : Dinic.o
+
+# target to build an object file
+Dinic.cpp.o:
+	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/Dinic.cpp.o
+.PHONY : Dinic.cpp.o
+
+Dinic.i: Dinic.cpp.i
+
+.PHONY : Dinic.i
+
+# target to preprocess a source file
+Dinic.cpp.i:
+	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/Dinic.cpp.i
+.PHONY : Dinic.cpp.i
+
+Dinic.s: Dinic.cpp.s
+
+.PHONY : Dinic.s
+
+# target to generate assembly for a file
+Dinic.cpp.s:
+	$(MAKE) -f CMakeFiles/kds.dir/build.make CMakeFiles/kds.dir/Dinic.cpp.s
+.PHONY : Dinic.cpp.s
+
 EdmondCarp.o: EdmondCarp.cpp.o
 
 .PHONY : EdmondCarp.o
@@ -213,6 +240,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... kds"
+	@echo "... Dinic.o"
+	@echo "... Dinic.i"
+	@echo "... Dinic.s"
 	@echo "... EdmondCarp.o"
 	@echo "... EdmondCarp.i"
 	@echo "... EdmondCarp.s"

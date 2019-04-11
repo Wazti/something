@@ -80,6 +80,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/Users/MKudrya/repos/something/kds/Dinic.cpp">
+			<Option target="kds"/>
+		</Unit>
+		<Unit filename="/Users/MKudrya/repos/something/kds/Dinic.h">
+			<Option target="kds"/>
+		</Unit>
 		<Unit filename="/Users/MKudrya/repos/something/kds/EdmondCarp.cpp">
 			<Option target="kds"/>
 		</Unit>

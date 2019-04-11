@@ -8,7 +8,7 @@
 #include <queue>
 #include <ctime>
 #include "FordFulkerson.h"
-
+#include "EdmondCarp.h"
 using namespace std;
 
 int dfs(vector<vector<int>>& graph, int index);
@@ -78,7 +78,8 @@ int main() {
     vector<pair<int,int>> allPairs = findAllPairs(graph);
     FordFulkerson fordFulkerson = FordFulkerson(graph, allPairs);
     fordFulkerson.run();
-
+    EdmondCarp edmondCarp = EdmondCarp(graph,allPairs);
+    edmondCarp.run();
     /*
     clock_t start=clock();
     fordFulkerson.runAlgorithm();

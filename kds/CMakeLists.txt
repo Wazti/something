@@ -3,4 +3,4 @@ project(kds)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(kds main.cpp FordFulkerson.cpp FordFulkerson.h EdmondCarp.cpp EdmondCarp.h)
+add_executable(kds main.cpp FordFulkerson.cpp FordFulkerson.h EdmondCarp.cpp EdmondCarp.h Dinic.cpp Dinic.h)

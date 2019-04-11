@@ -6,23 +6,21 @@
 
 #IncludeRegexTransform: 
 
-/Users/MKudrya/repos/something/kds/FordFulkerson.cpp
-FordFulkerson.h
-/Users/MKudrya/repos/something/kds/FordFulkerson.h
+/Users/MKudrya/repos/something/kds/EdmondCarp.cpp
+EdmondCarp.h
+/Users/MKudrya/repos/something/kds/EdmondCarp.h
+iostream
+-
 limits.h
 -
-cstring
+string.h
 -
 queue
 -
-iostream
--
-vector
--
-FordFulkerson.h
-/Users/MKudrya/repos/something/kds/FordFulkerson.h
 
-/Users/MKudrya/repos/something/kds/FordFulkerson.h
+/Users/MKudrya/repos/something/kds/EdmondCarp.h
 vector
+-
+queue
 -
 
