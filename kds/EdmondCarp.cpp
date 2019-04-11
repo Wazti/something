@@ -9,21 +9,20 @@ EdmondCarp::EdmondCarp(vector<vector<int>> G, vector<pair<int, int>> pairs)
     this->G = G;
     this->pairs = pairs;
 }
-/* Returns true if there is a path from source 's' to sink 't' in
-  residual graph. Also fills parent[] to store the path */
+/*Возвращает true, если есть путь от источника 's' к стоку 't' в
+  остаточный граф. Также заполняет parent [] для хранения пути */
 bool bfs(vector<vector<int>>& G, int s, int t, vector<int>& parent)
 {
     int size = parent.size();
-    // Create a visited array and mark all vertices as not visited
-    vector<bool> visited(size,false);
-    // Create a queue, enqueue source vertex and mark source vertex
-    // as visited
+    // Создаем посещенный массив и отмечаем все вершины как не посещенные
+    vector<char> visited(size,false);
+
     queue <int> q;
     q.push(s);
     visited[s] = true;
     parent[s] = -1;
 
-    // Standard BFS Loop
+    // Standard BFS цикл
     while (!q.empty())
     {
         if (visited[t])
@@ -43,34 +42,31 @@ bool bfs(vector<vector<int>>& G, int s, int t, vector<int>& parent)
         }
     }
 
-    // If we reached sink in BFS starting from source, then return
-    // true, else false
+
+    //Если мы достигли стока в BFS, начиная с исходного кода, вернемся
+    //
     return (visited[t]);
 }
 
-// Returns the maximum flow from s to t in the given graph
+//Возвращает максимальный поток от s до t в данном графе
 int EdmondCarp::edmondCarp(vector<vector<int>> &graph, int s, int t)
 {
     int u, v;
 
-    // Create a residual graph and fill the residual graph with
-    // given capacities in the original graph as residual capacities
-    // in residual graph
 
-    vector<vector<int>> rGraph; // Residual graph where rGraph[i][j] indicates
+    vector<vector<int>> rGraph;
     copy(graph.begin(),graph.end(),back_inserter(rGraph));
-    // residual capacity of edge from i to j (if there
-    // is an edge. If rGraph[i][j] is 0, then there is not)
-    vector<int> parent(graph.size());  // This array is filled by BFS and to store path
 
-    int maxflow = 0;  // There is no flow initially
+    vector<int> parent(graph.size());
 
-    // Augment the flow while tere is path from source to sink
+    int maxflow = 0;
+
+
     while (bfs(rGraph, s, t, parent))
     {
-        // Find minimum residual capacity of the edges along the
-        // path filled by BFS. Or we can say find the maximum flow
-        // through the path found.
+        //Находим минимальную остаточную емкость ребер
+        // путь заполнен BFS. Или найти максимальный поток
+        // через найденный путь.
         int pathflow = 1000000000;
         for (v=t; v!=s; v=parent[v])
         {
@@ -78,8 +74,8 @@ int EdmondCarp::edmondCarp(vector<vector<int>> &graph, int s, int t)
             pathflow = min(pathflow, rGraph[u][v]);
         }
 
-        // update residual capacities of the edges and reverse edges
-        // along the path
+        //обновить остаточные емкости ребер и обратных ребер
+        // по пути
         for (v=t; v != s; v=parent[v])
         {
             u = parent[v];
@@ -87,11 +83,9 @@ int EdmondCarp::edmondCarp(vector<vector<int>> &graph, int s, int t)
             rGraph[v][u] += pathflow;
         }
 
-        // Add path flow to overall flow
         maxflow += pathflow;
     }
 
-    // Return the overall flow
     return maxflow;
 }
 void EdmondCarp::run()

@@ -1,5 +1,5 @@
 //
-// Created by Weezle on 2019-04-10.
+// Created by Weezle on 2019-04-8.
 //
 
 #ifndef KDS_FORDFULKERSON_H
@@ -15,7 +15,7 @@ public:
 private:
     vector<vector<int>> G;
     vector<std::pair<int, int>> pairs;
-    int findPath(vector<vector<int>>& G, vector<bool>& visitedArr, int u, int t, int f);
+    int findPath(vector<vector<int>>& G, vector<char>& visitedArr, int u, int t, int f);
 };
 
 

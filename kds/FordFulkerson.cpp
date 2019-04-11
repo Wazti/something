@@ -17,11 +17,12 @@ FordFulkerson::FordFulkerson(vector<vector<int>> graph, vector<pair<int,int>> pa
     G = graph;
     this->pairs = pairs;
 }
+
 int FordFulkerson::fordFulkerson(vector<vector<int>> &G, int s, int t)
 {
     for (int flow = 0;;)
     {
-        vector<bool> visitedArr(G.size(), false);
+        vector<char> visitedArr(G.size(), false);
         int df = findPath(G,visitedArr,s,t,INT_MAX);
         if (df == 0)
             return flow;
@@ -33,9 +34,9 @@ int FordFulkerson::fordFulkerson(vector<vector<int>> &G, int s, int t)
 /// \param visitedArr visited points
 /// \param u
 /// \param t
-/// \param f
+/// \param f поток
 /// \return
-int FordFulkerson::findPath(vector<vector<int>> &G, vector<bool> &visitedArr, int u, int t, int f)
+int FordFulkerson::findPath(vector<vector<int>> &G, vector<char> &visitedArr, int u, int t, int f)
 {
     if (u == t)
         return f;
@@ -61,6 +62,6 @@ void FordFulkerson::run()
 
     {
         int res = fordFulkerson(G, pairs[i].first, pairs[i].second);
-        //cout <<"Result of FordFulkerson Algorithm  "<<res << endl;
+
     }
 }

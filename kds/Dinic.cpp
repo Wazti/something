@@ -1,6 +1,4 @@
-//
-// Created by Weezle on 2019-04-11.
-//
+
 
 #include "Dinic.h"
 #include <list>
@@ -21,11 +19,11 @@ bool Dinic::bfs(int s, int t)
     for (int i = 0 ; i < V ; i++)
         level[i] = -1;
 
-    level[s] = 0;  // Level of source vertex
+    level[s] = 0;  // Глубина графа
 
-    // Create a queue, enqueue source vertex
-    // and mark source vertex as visited here
-    // level[] array works as visited array also.
+    //Создается очередь, поставлена в очередь исходная вершина
+    // и отмечаем исходную вершину как посещенную
+    // массив level [] также работает как посещаемый массив.
     list<int> q;
     q.push_back(s);
 
@@ -48,38 +46,37 @@ bool Dinic::bfs(int s, int t)
         }
     }
 
-    // IF we can not reach to the sink we
-    // return false else true
+    //
+    //Если мы не можем добраться до раковины,
+    // возвращаем false, иначе true
     return level[t] >= 0;
 }
 
 int Dinic::dfs(int u, int flow, int t, int start[])
 {
-    // Sink reached
     if (u == t)
         return flow;
 
-    // Traverse all adjacent edges one -by - one.
+    //Пересекаем все соседние ребра.
     for (  ; start[u] < adject[u].size(); start[u]++)
     {
-        // Pick next edge from adjacency list of u
+
         Edge &e = adject[u][start[u]];
 
         if (level[e.v] == level[u]+1 && e.flow < e.C)
         {
-            // find minimum flow from u to t
+            // находим минимальный поток из u в v
             int curr_flow = min(flow, e.C - e.flow);
 
             int temp_flow = dfs(e.v, curr_flow, t, start);
 
-            // flow is greater than zero
+            // поток больше чем 0
             if (temp_flow > 0)
             {
-                // add flow  to current edge
+                // добавить поток к ребру
                 e.flow += temp_flow;
 
-                // subtract flow from reverse edge
-                // of current edge
+
                 adject[e.v][e.rev].flow -= temp_flow;
                 return temp_flow;
             }
@@ -91,24 +88,22 @@ int Dinic::dfs(int u, int flow, int t, int start[])
 
 int Dinic::dinicMaxflow(int s, int t)
 {
-    // Corner case
     if (s == t)
         return -1;
 
     int total = 0;  // Initialize result
 
-    // Augment the flow while there is path
-    // from source to sink
+
     while (bfs(s, t) == true)
     {
-        // store how many edges are visited
+        // подсчитать количество посещенных ребер
         // from V { 0 to V }
         int *start = new int[V+1];
 
-        // while flow is not zero in graph from S to D
+
         while (int flow = dfs(s, INT_MAX, t, start))
 
-            // Add path flow to overall flow
+            //Добавить поток пути к общему потоку
             total += flow;
     }
 
@@ -117,10 +112,10 @@ int Dinic::dinicMaxflow(int s, int t)
 }
 void Dinic::addEdge(int u, int v, int C)
 {
-    // Forward edge : 0 flow and C capacity
+
     Edge a{v, 0, C, (int)adject[v].size()};
 
-    // Back edge : 0 flow and 0 capacity
+
     Edge b{u, 0, 0, (int)adject[u].size()};
 
     adject[u].push_back(a);

@@ -1,1 +1,3 @@
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names  CMakeFiles/kds.dir/main.cpp.o CMakeFiles/kds.dir/FordFulkerson.cpp.o CMakeFiles/kds.dir/EdmondCarp.cpp.o CMakeFiles/kds.dir/Dinic.cpp.o CMakeFiles/kds.dir/GraphPairs.cpp.o  -o kds 
+"C:\Program Files\JetBrains\CLion 2018.3.1\bin\cmake\win\bin\cmake.exe" -E remove -f CMakeFiles\kds.dir/objects.a
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\ar.exe cr CMakeFiles\kds.dir/objects.a @CMakeFiles\kds.dir\objects1.rsp
+C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE -g   -Wl,--whole-archive CMakeFiles\kds.dir/objects.a -Wl,--no-whole-archive  -o kds.exe -Wl,--out-implib,libkds.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\kds.dir\linklibs.rsp
